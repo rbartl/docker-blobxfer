@@ -14,6 +14,9 @@ RUN apt-get install -y python3-pyparsing
 #RUN su integration -c "pip3 install --user blobxfer"
 RUN pip3 install --upgrade appdirs
 RUN pip3 install blobxfer
+RUN mkdir /transfer
+
+VOLUME [ "transfer" ]
 
 ENTRYPOINT [ "/usr/local/bin/blobxfer" ]
 CMD [ "--help" ]
