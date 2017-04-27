@@ -7,8 +7,13 @@ RUN apt-get install -y libffi-dev
 RUN apt-get install -y libssl-dev
 RUN apt-get install -y python3-pyparsing 
 
-RUN useradd -m integration
+#RUN useradd -m integration
 
 
-RUN su integration -c "pip3 install --user --upgrade appdirs"
-RUN su integration -c "pip3 install --user blobxfer"
+#RUN su integration -c "pip3 install --user --upgrade appdirs"
+#RUN su integration -c "pip3 install --user blobxfer"
+RUN pip3 install --upgrade appdirs
+RUN pip3 install blobxfer
+
+ENTRYPOINT [ "/usr/local/bin/blobxfer" ]
+CMD [ "--help" ]
