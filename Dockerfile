@@ -16,7 +16,7 @@ RUN pip3 install --upgrade appdirs
 RUN pip3 install blobxfer
 RUN mkdir /transfer
 
-VOLUME [ "transfer" ]
+VOLUME /transfer
 
 ENTRYPOINT [ "/usr/local/bin/blobxfer" ]
 CMD [ "--help" ]
